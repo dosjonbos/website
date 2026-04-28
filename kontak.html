@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="C:\Users\iky\Desktop\codingan\.vscode\logo.jpeg" type="image/png">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-left">
+     <img src="logo.jpeg" class="logo" alt="Logo">
+        <h2>Notaris & PPAT</h2>
+    </div>
+
+    <div class="nav-menu">
+        <a href="index.html">Beranda</a>
+        <a href="profil.html">Profil</a>
+        <a href="layanan.html">Layanan</a>
+        <a href="kontak.html" class="active">Kontak</a>
+    </div>
+</nav>
+
+<section class="kontak-section">
+
+    <!-- KIRI -->
+    <div class="kontak-info">
+        <h2>Hubungi Kami</h2>
+        <p>💬 WhatsApp: 0858-6476-5882</p>
+        <p>📧 Email: staffzzn2024@email.com</p>
+        <p>📍 Jl. Margaguna Raya No.22 Rt.003/Rw.011 Gandaria Utara Kec.Kby.baru Kota.Jakarta Selatan DKI Jakarta 12140</p>
+        <p>🕒 Senin - Jumat: 08.00 - 17.00</p>
+    </div>
+
+    <!-- KANAN -->
+    <div class="kontak-form">
+        <h2>Konsultasi Gratis</h2>
+
+       <form onsubmit="kirimWA(event)">
+    <input type="text" id="nama" placeholder="Nama Lengkap" required>
+    <input type="text" id="wa" placeholder="No. WhatsApp" required>
+    <input type="email" id="email" placeholder="Email (opsional)">
+    <textarea id="pesan" placeholder="Jelaskan kebutuhan Anda..." required></textarea>
+
+    <button type="submit">Kirim Pesan</button>
+</form>
+
+    </div>
+
+</section>
+
+<script>
+function kirimWA(event) {
+    event.preventDefault();
+
+    let nama = document.getElementById("nama").value;
+    let wa = document.getElementById("wa").value;
+    let email = document.getElementById("email").value;
+    let pesan = document.getElementById("pesan").value;
+
+    let text = `Halo, saya ${nama}%0A
+No WA: ${wa}%0A
+Email: ${email}%0A
+Pesan: ${pesan}`;
+
+    let nomorTujuan = "6285864765882";
+
+    window.open(`https://wa.me/${nomorTujuan}?text=${text}`, '_blank');
+}
+</script>
+
+<footer>
+    <p>© 2026 Notaris & PPAT</p>
+    <p style="font-size:13px; opacity:0.7;">Website resmi layanan hukum terpercaya</p>
+</footer>
+
+</body>
+</html>
