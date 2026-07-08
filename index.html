@@ -46,16 +46,17 @@
         
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #060A18; }
+        ::-webkit-scrollbar-track { background: #e5e6e9; }
         ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+        
+        /* Modal Animation Styles */
+        .modal-open { overflow: hidden; } 
     </style>
 </head>
 <body class="bg-luxury-dark text-white font-sans overflow-x-hidden selection:bg-luxury-gold selection:text-black">
 
     <!-- Navbar -->
     <nav class="absolute w-full z-30 py-6 px-6 lg:px-10 flex justify-between items-center opacity-0" id="navbar">
-        
-        <!-- Logo Notaris & Nama -->
         <a href="#" class="flex items-center gap-3 sm:gap-4 group">
             <div class="w-12 h-12 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center p-[2px] shadow-[0_0_15px_rgba(212,175,55,0.4)] group-hover:shadow-[0_0_20px_rgba(212,175,55,0.7)] transition-shadow duration-300">
                 <img src="logo.jpeg" alt="Logo Garuda Notaris" class="w-full h-full object-cover rounded-full">
@@ -65,8 +66,6 @@
                 <div class="text-[9px] md:text-[10px] text-gray-300 tracking-[0.2em] uppercase mt-0.5">NOTARIS KOTA TANGERANG SELATAN</div>
             </div>
         </a>
-
-        <!-- Menu Navigasi -->
         <div class="hidden md:flex gap-10 text-[11px] tracking-[0.25em] font-medium text-gray-300">
             <a href="#layanan" class="hover:text-luxury-gold transition duration-300">LAYANAN</a>
             <a href="#alur" class="hover:text-luxury-gold transition duration-300">PROSEDUR</a>
@@ -77,12 +76,8 @@
 
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center justify-center bg-luxury-darker text-center px-4 overflow-hidden">
-        
-        <!-- BACKGROUND GAMBAR PANJANG (320392.png) DENGAN EFEK LUXURY -->
         <div class="absolute inset-0 z-0 pointer-events-none">
-            <!-- Filter invert & grayscale mengubah background putih jadi hitam dan logo merah jadi emas/putih pucat -->
             <img src="background.jpeg" alt="Background Seal" class="w-full h-full object-cover opacity-15 filter invert grayscale mix-blend-screen">
-            <!-- Overlay gelap agar teks di depannya tetap mudah dibaca -->
             <div class="absolute inset-0 bg-gradient-to-b from-luxury-darker/90 via-luxury-darker/60 to-luxury-darker/95"></div>
         </div>
 
@@ -117,11 +112,11 @@
     <section class="bg-luxury-gold py-10 relative z-20 border-y border-luxury-gold/50 shadow-2xl">
         <div class="max-w-7xl mx-auto px-6 lg:px-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-luxury-black/20 stat-container">
             <div class="stat-item opacity-0">
-                <div class="text-3xl lg:text-4xl font-serif font-bold text-luxury-black mb-1">15+</div>
+                <div class="text-3xl lg:text-4xl font-serif font-bold text-luxury-black mb-1">8+</div>
                 <div class="text-[10px] tracking-[0.2em] uppercase font-semibold text-luxury-black/70">Tahun Pengalaman</div>
             </div>
             <div class="stat-item opacity-0">
-                <div class="text-3xl lg:text-4xl font-serif font-bold text-luxury-black mb-1">5.000+</div>
+                <div class="text-3xl lg:text-4xl font-serif font-bold text-luxury-black mb-1">500+</div>
                 <div class="text-[10px] tracking-[0.2em] uppercase font-semibold text-luxury-black/70">Akta Diterbitkan</div>
             </div>
             <div class="stat-item opacity-0">
@@ -129,7 +124,7 @@
                 <div class="text-[10px] tracking-[0.2em] uppercase font-semibold text-luxury-black/70">Klien Korporasi</div>
             </div>
             <div class="stat-item opacity-0">
-                <div class="text-3xl lg:text-4xl font-serif font-bold text-luxury-black mb-1">20+</div>
+                <div class="text-3xl lg:text-4xl font-serif font-bold text-luxury-black mb-1">10+</div>
                 <div class="text-[10px] tracking-[0.2em] uppercase font-semibold text-luxury-black/70">Mitra Perbankan</div>
             </div>
         </div>
@@ -146,13 +141,12 @@
                 <h2 class="font-serif text-4xl md:text-5xl font-semibold text-white mb-6">Pilihan Layanan Legalitas</h2>
                 <div class="w-16 h-[1px] bg-luxury-gold mx-auto mb-6"></div>
                 <p class="font-sans text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-                    Kami menawarkan berbagai instrumen hukum yang dapat disesuaikan dengan kebutuhan personal maupun ekspansi bisnis korporasi Anda.
+                    Kami menawarkan berbagai instrumen hukum yang dapat disesuaikan dengan kebutuhan personal maupun ekspansi bisnis korporasi Anda. Klik pada layanan untuk melihat detail.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <div class="service-card opacity-0 group border border-white/5 bg-white/5 backdrop-blur-md p-10 hover:border-luxury-gold/40 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+                <div onclick="openModal('Pertanahan & PPAT', 'Layanan Pejabat Pembuat Akta Tanah (PPAT) meliputi kepengurusan hak atas tanah seperti pembuatan Akta Jual Beli (AJB), Akta Hibah, Akta Pembagian Hak Bersama (APHB), Pemecahan atau Penggabungan Sertifikat, hingga proses pengikatan Hak Tanggungan (APHT) dan Roya. Kami memastikan keabsahan peralihan hak properti Anda terjamin dan terdaftar secara resmi di Badan Pertanahan Nasional (BPN).')" class="service-card opacity-0 group border border-white/5 bg-white/5 backdrop-blur-md p-10 hover:border-luxury-gold/40 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer active:scale-95">
                     <div class="absolute top-0 left-0 w-1 h-full bg-luxury-gold transform scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom"></div>
                     <div class="flex justify-between items-start mb-6">
                         <div class="text-luxury-gold text-3xl font-serif">I.</div>
@@ -162,7 +156,7 @@
                     <p class="font-sans text-gray-400 text-sm leading-relaxed">Akta Jual Beli (AJB), Balik Nama Sertifikat, Pemecahan, Hibah, dan Pengikatan Hak Tanggungan.</p>
                 </div>
 
-                <div class="service-card opacity-0 group border border-white/5 bg-white/5 backdrop-blur-md p-10 hover:border-luxury-gold/40 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+                <div onclick="openModal('Pendirian Perusahaan', 'Membantu para pengusaha dan korporasi dalam mendirikan badan usaha yang sah di mata hukum. Layanan ini mencakup pembuatan Akta Pendirian Perseroan Terbatas (PT), CV, Firma, Koperasi, Yayasan, dan Perkumpulan. Selain itu, kami juga memfasilitasi pembuatan Akta Perubahan Anggaran Dasar, Akta Jual Beli Saham, hingga proses Likuidasi perusahaan.')" class="service-card opacity-0 group border border-white/5 bg-white/5 backdrop-blur-md p-10 hover:border-luxury-gold/40 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer active:scale-95">
                     <div class="absolute top-0 left-0 w-1 h-full bg-luxury-gold transform scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom"></div>
                     <div class="flex justify-between items-start mb-6">
                         <div class="text-luxury-gold text-3xl font-serif">II.</div>
@@ -172,7 +166,7 @@
                     <p class="font-sans text-gray-400 text-sm leading-relaxed">Pendirian PT, CV, Firma, Yayasan, Perkumpulan, dan legalisasi Anggaran Dasar perusahaan.</p>
                 </div>
 
-                <div class="service-card opacity-0 group border border-white/5 bg-white/5 backdrop-blur-md p-10 hover:border-luxury-gold/40 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+                <div onclick="openModal('Perjanjian & Kontrak', 'Layanan legal drafting (perancangan kontrak) yang dirancang untuk meminimalisir risiko sengketa di masa depan. Termasuk di dalamnya pembuatan Akta Perjanjian Kerja Sama (Joint Venture), Perjanjian Sewa Menyewa, Perjanjian Hutang Piutang (Pengakuan Hutang), Perjanjian Waralaba (Franchise), serta berbagai kontrak komersial lainnya yang dilegalisasi secara otentik.')" class="service-card opacity-0 group border border-white/5 bg-white/5 backdrop-blur-md p-10 hover:border-luxury-gold/40 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer active:scale-95">
                     <div class="absolute top-0 left-0 w-1 h-full bg-luxury-gold transform scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom"></div>
                     <div class="flex justify-between items-start mb-6">
                         <div class="text-luxury-gold text-3xl font-serif">III.</div>
@@ -182,7 +176,7 @@
                     <p class="font-sans text-gray-400 text-sm leading-relaxed">Penyusunan Perjanjian Kerja Sama, Sewa Menyewa, Hutang Piutang, dan kontrak komersial lainnya.</p>
                 </div>
 
-                <div class="service-card opacity-0 group border border-white/5 bg-white/5 backdrop-blur-md p-10 hover:border-luxury-gold/40 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+                <div onclick="openModal('Hukum Keluarga & Waris', 'Memberikan kepastian hukum terkait urusan domestik dan aset keluarga Anda. Meliputi pembuatan Akta Perjanjian Kawin (Prenuptial/Postnuptial Agreement) untuk pemisahan harta kekayaan, pembuatan Akta Wasiat (Testament), Surat Keterangan Hak Mewaris, serta hibah wasiat kepada anggota keluarga maupun pihak ketiga.')" class="service-card opacity-0 group border border-white/5 bg-white/5 backdrop-blur-md p-10 hover:border-luxury-gold/40 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer active:scale-95">
                     <div class="absolute top-0 left-0 w-1 h-full bg-luxury-gold transform scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom"></div>
                     <div class="flex justify-between items-start mb-6">
                         <div class="text-luxury-gold text-3xl font-serif">IV.</div>
@@ -192,7 +186,7 @@
                     <p class="font-sans text-gray-400 text-sm leading-relaxed">Perjanjian Pra-Nikah (Prenuptial Agreement), Akta Wasiat, dan Keterangan Hak Waris secara legal.</p>
                 </div>
 
-                <div class="service-card opacity-0 group border border-white/5 bg-white/5 backdrop-blur-md p-10 hover:border-luxury-gold/40 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+                <div onclick="openModal('Legalisasi & Waarmerking', 'Layanan Legalisasi merupakan pengesahan tanda tangan pada surat/dokumen yang dibuat di bawah tangan (dibuat sendiri oleh para pihak) dan ditandatangani di hadapan Notaris. Sedangkan Waarmerking adalah pendaftaran surat di bawah tangan ke dalam buku khusus Notaris. Layanan ini juga mencakup legalisasi kecocokan fotokopi (copy collationnee) sesuai dengan dokumen aslinya.')" class="service-card opacity-0 group border border-white/5 bg-white/5 backdrop-blur-md p-10 hover:border-luxury-gold/40 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer active:scale-95">
                     <div class="absolute top-0 left-0 w-1 h-full bg-luxury-gold transform scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom"></div>
                     <div class="flex justify-between items-start mb-6">
                         <div class="text-luxury-gold text-3xl font-serif">V.</div>
@@ -202,7 +196,7 @@
                     <p class="font-sans text-gray-400 text-sm leading-relaxed">Pengesahan tanda tangan pada dokumen di bawah tangan dan pendaftaran dokumen resmi.</p>
                 </div>
 
-                <div class="service-card opacity-0 group border border-white/5 bg-white/5 backdrop-blur-md p-10 hover:border-luxury-gold/40 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+                <div onclick="openModal('Kuasa Otentik', 'Pembuatan Akta Kuasa yang memiliki kekuatan pembuktian sempurna (otentik). Diperlukan ketika seseorang tidak dapat melakukan tindakan hukum secara langsung dan perlu mewakilkan pihak lain. Meliputi Surat Kuasa Menjual, Kuasa Mengambil Sertifikat, Kuasa Menjaminkan, hingga Kuasa Direksi dalam sebuah Perseroan.')" class="service-card opacity-0 group border border-white/5 bg-white/5 backdrop-blur-md p-10 hover:border-luxury-gold/40 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer active:scale-95">
                     <div class="absolute top-0 left-0 w-1 h-full bg-luxury-gold transform scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom"></div>
                     <div class="flex justify-between items-start mb-6">
                         <div class="text-luxury-gold text-3xl font-serif">VI.</div>
@@ -216,36 +210,40 @@
         </div>
     </section>
 
-    <!-- Alur Kerja / Prosedur -->
+    <!-- Alur Kerja / Prosedur (Dibuat bisa diklik / interaktif) -->
     <section id="alur" class="relative py-24 bg-luxury-black px-6 lg:px-20 border-t border-white/5">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16 process-header opacity-0">
                 <h2 class="font-serif text-3xl md:text-4xl font-semibold text-white mb-4">Prosedur Layanan Kami</h2>
-                <p class="font-sans text-gray-400 text-sm">Alur kerja yang efisien, transparan, dan dapat diandalkan.</p>
+                <p class="font-sans text-gray-400 text-sm">Alur kerja yang efisien, transparan, dan dapat diandalkan. Klik untuk melihat detail prosedur.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
                 <div class="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-white/10 -translate-y-1/2 z-0"></div>
 
-                <div class="process-step opacity-0 relative z-10 bg-luxury-black p-6 border border-white/5 text-center hover:border-luxury-gold/30 transition-colors">
+                <!-- Step 1 -->
+                <div onclick="openModal('Tahap 1: Konsultasi Awal', 'Pada tahap ini, klien dapat mengatur jadwal pertemuan langsung di kantor kami atau berkonsultasi melalui panggilan/WhatsApp untuk mendiskusikan kebutuhan legalitas. Tim kami akan memberikan advis hukum awal, merinci persyaratan dokumen yang wajib dipenuhi, serta memberikan estimasi jangka waktu dan biaya kepengurusan akta/dokumen.')" class="process-step opacity-0 relative z-10 bg-luxury-black p-6 border border-white/5 text-center hover:border-luxury-gold/40 transition-all duration-300 cursor-pointer active:scale-95 hover:-translate-y-1">
                     <div class="w-12 h-12 bg-luxury-darker border border-luxury-gold text-luxury-gold rounded-full flex items-center justify-center mx-auto mb-4 font-serif text-xl">1</div>
                     <h4 class="font-serif text-lg text-white mb-2">Konsultasi</h4>
                     <p class="text-xs text-gray-500 leading-relaxed">Diskusi awal untuk memahami kebutuhan hukum dan legalitas Anda.</p>
                 </div>
 
-                <div class="process-step opacity-0 relative z-10 bg-luxury-black p-6 border border-white/5 text-center hover:border-luxury-gold/30 transition-colors">
+                <!-- Step 2 -->
+                <div onclick="openModal('Tahap 2: Analisis Dokumen', 'Setelah klien menyerahkan dokumen prasyarat yang diminta, tim ahli kami akan melakukan verifikasi menyeluruh. Ini mencakup pengecekan keabsahan berkas, validasi riwayat (seperti checking sertifikat di BPN atau status badan hukum di Kemenkumham), serta memastikan tidak adanya sengketa hukum atau kekurangan syarat formil maupun materiil.')" class="process-step opacity-0 relative z-10 bg-luxury-black p-6 border border-white/5 text-center hover:border-luxury-gold/40 transition-all duration-300 cursor-pointer active:scale-95 hover:-translate-y-1">
                     <div class="w-12 h-12 bg-luxury-darker border border-luxury-gold text-luxury-gold rounded-full flex items-center justify-center mx-auto mb-4 font-serif text-xl">2</div>
                     <h4 class="font-serif text-lg text-white mb-2">Analisis Dokumen</h4>
                     <p class="text-xs text-gray-500 leading-relaxed">Pemeriksaan kelengkapan dan keabsahan berkas oleh tim ahli kami.</p>
                 </div>
 
-                <div class="process-step opacity-0 relative z-10 bg-luxury-black p-6 border border-white/5 text-center hover:border-luxury-gold/30 transition-colors">
+                <!-- Step 3 -->
+                <div onclick="openModal('Tahap 3: Pembuatan Draf (Drafting)', 'Berdasarkan hasil analisis dokumen dan kesepakatan awal, kami akan menyusun draf akta (Minuta Akta). Draf ini akan kami berikan kepada klien untuk dibaca, ditinjau (review), dan direvisi jika diperlukan. Tujuannya adalah untuk memastikan semua klausul telah sesuai dengan kehendak para pihak tanpa melanggar undang-undang yang berlaku.')" class="process-step opacity-0 relative z-10 bg-luxury-black p-6 border border-white/5 text-center hover:border-luxury-gold/40 transition-all duration-300 cursor-pointer active:scale-95 hover:-translate-y-1">
                     <div class="w-12 h-12 bg-luxury-darker border border-luxury-gold text-luxury-gold rounded-full flex items-center justify-center mx-auto mb-4 font-serif text-xl">3</div>
                     <h4 class="font-serif text-lg text-white mb-2">Pembuatan Draf</h4>
                     <p class="text-xs text-gray-500 leading-relaxed">Penyusunan draf akta untuk di-review dan disetujui bersama.</p>
                 </div>
 
-                <div class="process-step opacity-0 relative z-10 bg-luxury-black p-6 border border-white/5 text-center hover:border-luxury-gold/30 transition-colors">
+                <!-- Step 4 -->
+                <div onclick="openModal('Tahap 4: Penandatanganan & Peresmian', 'Para pihak yang berkepentingan wajib hadir secara fisik di hadapan Notaris/PPAT. Notaris akan membacakan akta tersebut untuk dipahami, lalu dilanjutkan dengan proses penandatanganan. Setelah akta diresmikan, kami akan memproses legalisasi, pendaftaran ke instansi terkait (jika ada), hingga akhirnya menyerahkan Salinan Akta final kepada klien.')" class="process-step opacity-0 relative z-10 bg-luxury-black p-6 border border-white/5 text-center hover:border-luxury-gold/40 transition-all duration-300 cursor-pointer active:scale-95 hover:-translate-y-1">
                     <div class="w-12 h-12 bg-luxury-gold border border-luxury-gold text-luxury-black rounded-full flex items-center justify-center mx-auto mb-4 font-serif text-xl font-bold">4</div>
                     <h4 class="font-serif text-lg text-white mb-2">Penandatanganan</h4>
                     <p class="text-xs text-gray-500 leading-relaxed">Penandatanganan akta otentik dan penyerahan dokumen final.</p>
@@ -257,7 +255,6 @@
     <!-- Profil Section -->
     <section id="profil" class="relative py-32 bg-luxury-dark px-6 lg:px-20 overflow-hidden border-t border-white/5">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
-            
             <div class="w-full lg:w-1/2 relative profile-image opacity-0 flex justify-center lg:justify-end pr-0 lg:pr-10">
                 <div class="relative w-full max-w-[320px]">
                     <div class="absolute -inset-4 border border-luxury-gold/40 bg-luxury-darker/60 transform translate-x-3 translate-y-3 z-0"></div>
@@ -267,7 +264,6 @@
                         <div class="relative overflow-hidden group bg-luxury-dark">
                             <div class="absolute inset-0 bg-gradient-to-t from-luxury-black via-transparent to-luxury-black/30 z-20 pointer-events-none mix-blend-multiply"></div>
                             <div class="absolute inset-0 shadow-[inset_0_0_50px_rgba(0,0,0,0.8)] z-20 pointer-events-none"></div>
-                            
                             <img src="owner.jpg" alt="Dr.H.R.ZULKI ZULKIFLI NOOR" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105 filter contrast-[1.05] brightness-[0.95]">
                         </div>
                     </div>
@@ -281,8 +277,8 @@
                 </div>
                 
                 <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-2 leading-tight">
-                    Dr.H.R.ZULKI ZULKIFLI NOOR, <br>
-                    <span class="text-xl md:text-2xl text-luxury-gold font-light tracking-wide mt-2 block">S.T., S.H., M.H., M.Kn. M.M.</span>
+                    Dr.H.R.ZULKI ZULKIFLI NOOR, S.T., S.H., M.H., M.Kn. M.M. <br>
+                    <span class="text-xl md:text-2xl text-luxury-gold font-light tracking-wide mt-2 block"></span>
                 </h2>
                 <div class="text-sm tracking-[0.2em] text-gray-400 uppercase mb-8 border-b border-white/10 pb-4 inline-block">NOTARIS KOTA TANGERANG SELATAN</div>
                 
@@ -304,21 +300,17 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
     <!-- Footer & Kontak -->
     <footer id="kontak" class="bg-luxury-black pt-24 pb-10 border-t border-white/5 relative overflow-hidden">
-        
-        <!-- WATERMARK LOGO KECIL DI POJOK BAWAH -->
         <div class="absolute -right-20 -bottom-20 opacity-[0.03] pointer-events-none filter grayscale">
             <img src="logo.jpeg" alt="Logo Watermark" class="w-96 h-96">
         </div>
 
         <div class="max-w-7xl mx-auto px-6 lg:px-20 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 footer-element opacity-0">
-                
                 <div class="lg:col-span-1">
                     <div class="flex items-center gap-3 mb-4">
                         <img src="logo.jpeg" alt="Logo Notaris" class="w-10 h-10 rounded-full bg-white p-0.5 shadow-[0_0_10px_rgba(212,175,55,0.3)]">
@@ -376,45 +368,88 @@
         </div>
     </footer>
 
-    <!-- Script Animasi GSAP -->
+    <!-- MODAL (POP-UP) -->
+    <div id="serviceModal" class="fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closeModal()"></div>
+        
+        <div class="relative bg-luxury-darker border border-luxury-gold/30 p-8 md:p-12 max-w-2xl w-[90%] md:w-full shadow-[0_0_40px_rgba(212,175,55,0.15)] transform translate-y-8 transition-transform duration-300" id="modalContent">
+            <button onclick="closeModal()" class="absolute top-4 right-5 text-gray-500 hover:text-luxury-gold text-3xl transition-colors">&times;</button>
+            
+            <div class="text-luxury-gold text-xs tracking-[0.3em] uppercase mb-4 font-semibold">Detail Informasi</div>
+            <h3 class="font-serif text-3xl md:text-4xl text-white mb-6" id="modalTitle">Judul</h3>
+            <div class="w-12 h-[1px] bg-luxury-gold mb-6"></div>
+            
+            <p class="font-sans text-gray-300 leading-relaxed font-light text-sm md:text-base" id="modalBody">
+                Deskripsi detail akan muncul di sini.
+            </p>
+            
+            <button onclick="closeModal()" class="mt-10 border border-luxury-gold/50 text-luxury-gold px-8 py-3 text-[10px] tracking-[0.15em] uppercase hover:bg-luxury-gold hover:text-luxury-black transition-colors">
+                Tutup Jendela
+            </button>
+        </div>
+    </div>
+
+    <!-- Script JavaScript untuk Animasi GSAP dan Fungsi Modal -->
     <script>
+        window.openModal = function(title, description) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalBody').innerText = description;
+            
+            const modal = document.getElementById('serviceModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            document.body.classList.add('modal-open');
+            
+            modal.classList.remove('pointer-events-none', 'opacity-0');
+            modal.classList.add('opacity-100');
+            
+            modalContent.classList.remove('translate-y-8');
+            modalContent.classList.add('translate-y-0');
+        };
+
+        window.closeModal = function() {
+            const modal = document.getElementById('serviceModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            document.body.classList.remove('modal-open');
+            
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            
+            modalContent.classList.remove('translate-y-0');
+            modalContent.classList.add('translate-y-8');
+        };
+
         document.addEventListener("DOMContentLoaded", () => {
             gsap.registerPlugin(ScrollTrigger);
 
-            // Animasi Masuk (Hero & Navbar)
             const tl = gsap.timeline();
             tl.to("#navbar", { opacity: 1, y: 15, duration: 1.2, ease: "power3.out" })
               .to(".hero-element", { opacity: 1, scaleX: 1.5, duration: 1, ease: "power2.out" }, "-=0.6")
               .to(".hero-text", { opacity: 1, y: -20, duration: 1.2, stagger: 0.15, ease: "power3.out" }, "-=0.4");
 
-            // Animasi Statistik
             gsap.to(".stat-item", {
                 scrollTrigger: { trigger: ".stat-container", start: "top 85%" },
                 opacity: 1, y: -10, duration: 0.8, stagger: 0.1, ease: "power2.out"
             });
 
-            // Animasi Layanan
             gsap.to(".section-header", { scrollTrigger: { trigger: "#layanan", start: "top 75%" }, opacity: 1, y: -20, duration: 1, ease: "power3.out" });
             gsap.to(".service-card", { 
                 scrollTrigger: { trigger: ".service-card", start: "top 80%" }, 
                 opacity: 1, y: -20, duration: 0.8, stagger: 0.1, ease: "power3.out" 
             });
 
-            // Animasi Prosedur
             gsap.to(".process-header", { scrollTrigger: { trigger: "#alur", start: "top 80%" }, opacity: 1, y: -20, duration: 1, ease: "power3.out" });
             gsap.to(".process-step", { 
                 scrollTrigger: { trigger: ".process-step", start: "top 80%" }, 
                 opacity: 1, y: -20, duration: 0.8, stagger: 0.15, ease: "power3.out" 
             });
 
-            // Animasi Profil
             gsap.to(".profile-image", { scrollTrigger: { trigger: "#profil", start: "top 70%" }, opacity: 1, x: 20, duration: 1.2, ease: "power3.out" });
             gsap.to(".profile-text", { scrollTrigger: { trigger: "#profil", start: "top 70%" }, opacity: 1, x: -20, duration: 1.2, ease: "power3.out", delay: 0.2 });
 
-            // Animasi Footer
             gsap.to(".footer-element", { scrollTrigger: { trigger: "#kontak", start: "top 90%" }, opacity: 1, y: -20, duration: 1, stagger: 0.15, ease: "power3.out" });
 
-            // Smooth Scroll Navigasi
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
